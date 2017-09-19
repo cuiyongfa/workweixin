@@ -1,0 +1,12 @@
+[DEFAULT]
+
+# url
+burl = https://qyapi.weixin.qq.com/cgi-bin/
+# 企业id
+corp_id = xxx
+# agentid
+agent_id = 123456
+# 通讯录
+contacts_secret_id = ABCDEFG
+# 企业小助手
+helper_secret_id = ABCDEFG

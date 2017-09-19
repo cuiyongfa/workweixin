@@ -1,0 +1,5 @@
+.vscode
+__pycache__
+debug.log
+weixin.conf
+sync.py
