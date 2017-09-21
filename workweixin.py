@@ -57,7 +57,7 @@ class Weixin:
         """获取企业微信post数据体(json)"""
         return json.dumps(kwargs)
 
-    def get_dep_list(self, depid=0):
+    def get_dep_list(self, depid=1):
         """获取部门列表"""
         url = burl + 'department/list?access_token={token}&id={depid}'\
             .format(token=self.contacts_token, depid=depid)

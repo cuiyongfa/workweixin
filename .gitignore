@@ -1,5 +1,7 @@
 .vscode
 __pycache__
-debug.log
-weixin.conf
+*.log
+*.conf
 sync.py
+vendor
+composer.lock
