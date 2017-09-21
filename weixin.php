@@ -257,7 +257,8 @@ function delete_multi_user($userid_list) {
  * @param array/string $to_user 接收用户ID
  * @param array/string $to_dep 接收部门ID
  * @param integer $safe 是否为保密消息
- * @return void
+ * 
+ * @return array
  */
 function send_message($content, $to_user, $to_dep=null, $safe=0) {
     global $helper_token;
