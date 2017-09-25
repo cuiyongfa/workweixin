@@ -170,7 +170,7 @@ function delete_dep($depid) {
 /**
  * 创建部门
  *
- * @param integer $userid 用户ID
+ * @param string $userid 用户ID
  * @param string $name 用户名
  * @param array $deps 所属部门ID
  * @param string $email 邮箱
@@ -197,7 +197,7 @@ function create_user($userid, $name, $deps, $email=null, $mobile=null, $ename=nu
 /**
  * 更新部门信息
  *
- * @param integer $userid 用户ID
+ * @param string $userid 用户ID
  * @param string $name 用户名
  * @param array $deps 所属部门ID
  * @param string $email 邮箱
