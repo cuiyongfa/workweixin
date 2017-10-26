@@ -94,9 +94,9 @@ class Weixin:
         r = requests.post(url, data=body)
         return r.json()
 
-    def update_dep(self, depid, name):
+    def update_dep(self, depid, name=None, pid=None):
         """更新部门信息"""
-        body = self.get_post_body(id=depid, name=name)
+        body = self.get_post_body(id=depid, name=name, parentid=pid)
         url = burl + 'department/update?access_token={token}'\
             .format(token=self.contacts_token)
         r = requests.post(url, data=body)
@@ -115,7 +115,7 @@ class Weixin:
         """创建用户"""
         if mobile:
             mobile = str(mobile)
-        body = self.get_post_body(userid=userid, name=name, english_name=ename,
+        body = self.get_post_body(userid=str(userid), name=name, english_name=ename,
                                   mobile=mobile, department=deps,
                                   position=title, gender=gender,
                                   email=email, isleader=isleader, enable=enable
@@ -131,7 +131,7 @@ class Weixin:
         """更新用户信息"""
         if mobile:
             mobile = str(mobile)
-        body = self.get_post_body(userid=userid, name=name, english_name=ename,
+        body = self.get_post_body(userid=str(userid), name=name, english_name=ename,
                                   mobile=mobile, department=deps,
                                   position=title, gender=gender,
                                   email=email, isleader=isleader, enable=enable
