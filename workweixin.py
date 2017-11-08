@@ -86,6 +86,51 @@ class Weixin:
         r = requests.get(url)
         return r.json()
 
+    def create_tag(self, name, tagid):
+        """创建标签"""
+        body = self.get_post_body(tagname=name, tagid=tagid)
+        url = burl + 'tag/create?access_token={token}'\
+            .format(token=self.contacts_token)
+        r = requests.post(url, data=body)
+        return r.json()
+
+    def delete_tag(self, tagid):
+        """删除标签"""
+        url = burl + 'tag/delete?access_token={token}&tagid={tagid}'\
+            .format(token=self.contacts_token, tagid=tagid)
+        r = requests.get(url)
+        return r.json()
+
+    def get_tag_users(self, tagid):
+        "获取标签人员"
+        url = burl + 'tag/get?access_token={token}&tagid={tagid}'\
+            .format(token=self.contacts_token, tagid=tagid)
+        r = requests.get(url)
+        return r.json()
+
+    def add_user_to_tag(self, tagid, userlist):
+        """添加用户到标签"""
+        body = self.get_post_body(tagid=tagid, userlist=userlist)
+        url = burl + 'tag/addtagusers?access_token={token}'\
+            .format(token=self.contacts_token)
+        r = requests.post(url, data=body)
+        return r.json()
+
+    def del_user_from_tag(self, tagid, userlist):
+        """从标签删除用户"""
+        body = self.get_post_body(tagid=tagid, userlist=userlist)
+        url = burl + 'tag/deltagusers?access_token={token}'\
+            .format(token=self.contacts_token)
+        r = requests.post(url, data=body)
+        return r.json()
+
+    def get_tag_list(self):
+        """获取所有标签"""
+        url = burl + 'tag/list?access_token={token}'\
+            .format(token=self.contacts_token)
+        r = requests.get(url)
+        return r.json()
+
     def create_dep(self, name, parentid, depid=0):
         """创建部门"""
         body = self.get_post_body(name=name, parentid=parentid, id=depid)
@@ -94,9 +139,9 @@ class Weixin:
         r = requests.post(url, data=body)
         return r.json()
 
-    def update_dep(self, depid, name=None, pid=None):
+    def update_dep(self, depid, name=None, pid=None, order=None):
         """更新部门信息"""
-        body = self.get_post_body(id=depid, name=name, parentid=pid)
+        body = self.get_post_body(id=depid, name=name, parentid=pid, order=order)
         url = burl + 'department/update?access_token={token}'\
             .format(token=self.contacts_token)
         r = requests.post(url, data=body)
