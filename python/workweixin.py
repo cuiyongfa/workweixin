@@ -16,7 +16,7 @@ BASE_PATH = os.path.dirname(os.path.abspath(__file__))
 def load_config():
     global burl, corp_id, agent_id, contacts_secret_id, helper_secret_id
     conf = ConfigParser()
-    conf.read(BASE_PATH + '/weixin.conf')
+    conf.read(BASE_PATH + '/workweixin.conf')
     burl = conf['DEFAULT']['burl']
     corp_id = conf['DEFAULT']['corp_id']
     agent_id = conf['DEFAULT']['agent_id']
